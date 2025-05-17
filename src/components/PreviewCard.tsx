@@ -1,4 +1,3 @@
-import { motion } from '@motionone/react';
 import { useNeumorph } from '../hooks/useNeumorph';
 import { CSSProperties } from 'react';
 
@@ -25,6 +24,8 @@ export default function PreviewCard({
     width: size,
     height: size,
     borderRadius: radius,
+    transition: 'box-shadow 0.2s ease',
+    boxShadow: isPressed ? insetShadow : raisedShadow,
     '--neu-h': h,
     '--neu-s': `${s}%`,
     '--neu-l': `${l}%`,
@@ -48,17 +49,16 @@ export default function PreviewCard({
   };
 
   return (
-    <motion.div
+    <div
       data-testid="card"
       style={style}
       onClick={onToggle}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      animate={{ boxShadow: isPressed ? insetShadow : raisedShadow }}
       className="shadow-neumorph flex items-center justify-center select-none"
     >
       {isPressed ? 'Pressed' : 'Raised'}
-    </motion.div>
+    </div>
   );
 }
 

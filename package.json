@@ -15,7 +15,6 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "@motionone/react": "^10.16.1",
     "colorjs.io": "^0.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,7 +22,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
-    "@tailwindcss/postcss": "^4.1.7",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
