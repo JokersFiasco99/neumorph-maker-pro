@@ -1,4 +1,10 @@
-import { FiCopy, FiToggleLeft, FiToggleRight } from 'react-icons/fi';
+import {
+  FiCopy,
+  FiToggleLeft,
+  FiToggleRight,
+  FiRefreshCcw
+} from 'react-icons/fi';
+import { useNeumorph } from '../hooks/useNeumorph';
 
 interface Props {
   color: string;
@@ -25,8 +31,20 @@ export default function ControlPanel({
   isPressed,
   onToggle
 }: Props) {
+  const { raisedShadow, insetShadow } = useNeumorph(color, depth);
+
   const copy = () => {
-    navigator.clipboard.writeText(document.documentElement.style.cssText);
+    const shadow = isPressed ? insetShadow : raisedShadow;
+    const css = `box-shadow: ${shadow}; border-radius: ${radius}px;`;
+    navigator.clipboard.writeText(css);
+  };
+
+  const reset = () => {
+    onColorChange('#cccccc');
+    onDepthChange(6);
+    onSizeChange(150);
+    onRadiusChange(12);
+    if (isPressed) onToggle();
   };
 
   return (
@@ -82,6 +100,12 @@ export default function ControlPanel({
         className="flex items-center gap-2 border rounded px-2 py-1"
       >
         <FiCopy /> Copy CSS
+      </button>
+      <button
+        onClick={reset}
+        className="flex items-center gap-2 border rounded px-2 py-1"
+      >
+        <FiRefreshCcw /> Reset
       </button>
     </div>
   );
