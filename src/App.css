@@ -1,0 +1,10 @@
+:root {
+  --neu-h: 0;
+  --neu-s: 0%;
+  --neu-l: 80%;
+  --neu-depth: 6px;
+  --neu-radius: 12px;
+  --neu-raised: var(--neu-depth) var(--neu-depth) calc(var(--neu-depth)*2) hsl(var(--neu-h) var(--neu-s) calc(var(--neu-l) - 15%)), calc(-1*var(--neu-depth)) calc(-1*var(--neu-depth)) calc(var(--neu-depth)*2) hsl(var(--neu-h) var(--neu-s) calc(var(--neu-l) + 15%));
+  --neu-inset: inset var(--neu-depth) var(--neu-depth) calc(var(--neu-depth)*2) hsl(var(--neu-h) var(--neu-s) calc(var(--neu-l) - 15%)), inset calc(-1*var(--neu-depth)) calc(-1*var(--neu-depth)) calc(var(--neu-depth)*2) hsl(var(--neu-h) var(--neu-s) calc(var(--neu-l) + 15%));
+}
+
