@@ -37,9 +37,9 @@ export default function PreviewCard({
 
   const handlePointerDown = () => {
     timeout = setTimeout(() => {
-      navigator.clipboard.writeText(`box-shadow: ${
-        isPressed ? insetShadow : raisedShadow
-      };`);
+      navigator.clipboard.writeText(
+        `box-shadow: ${isPressed ? insetShadow : raisedShadow};`
+      );
     }, 600);
   };
 
@@ -55,10 +55,9 @@ export default function PreviewCard({
       onClick={onToggle}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      className="shadow-neumorph flex items-center justify-center select-none"
+      className="shadow-neumorph flex items-center justify-center select-none bg-background text-foreground"
     >
       {isPressed ? 'Pressed' : 'Raised'}
     </div>
   );
 }
-
