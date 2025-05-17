@@ -4,6 +4,7 @@ import {
   FiToggleRight,
   FiRefreshCcw
 } from 'react-icons/fi';
+import Button from './ui/Button';
 import { useNeumorph } from '../hooks/useNeumorph';
 
 interface Props {
@@ -56,7 +57,7 @@ export default function ControlPanel({
           type="color"
           value={color}
           onChange={(e) => onColorChange(e.target.value)}
-          className="border rounded"
+          className="h-8 w-8 rounded-md border border-slate-200"
         />
         <span className="ml-2 text-xs font-mono">{color}</span>
       </label>
@@ -69,6 +70,7 @@ export default function ControlPanel({
           max="20"
           value={depth}
           onChange={(e) => onDepthChange(Number(e.target.value))}
+          className="flex-1 accent-slate-900"
         />
         <span className="ml-2 text-xs font-mono">{depth}px</span>
       </label>
@@ -81,6 +83,7 @@ export default function ControlPanel({
           max="300"
           value={size}
           onChange={(e) => onSizeChange(Number(e.target.value))}
+          className="flex-1 accent-slate-900"
         />
         <span className="ml-2 text-xs font-mono">{size}px</span>
       </label>
@@ -93,28 +96,20 @@ export default function ControlPanel({
           max="50"
           value={radius}
           onChange={(e) => onRadiusChange(Number(e.target.value))}
+          className="flex-1 accent-slate-900"
         />
         <span className="ml-2 text-xs font-mono">{radius}px</span>
       </label>
-      <button
-        onClick={onToggle}
-        className="flex items-center gap-2 border rounded px-2 py-1"
-      >
+      <Button onClick={onToggle} className="flex items-center gap-2" variant="outline">
         {isPressed ? <FiToggleRight /> : <FiToggleLeft />}
         Toggle Pressed
-      </button>
-      <button
-        onClick={copy}
-        className="flex items-center gap-2 border rounded px-2 py-1"
-      >
+      </Button>
+      <Button onClick={copy} className="flex items-center gap-2" variant="outline">
         <FiCopy /> Copy CSS
-      </button>
-      <button
-        onClick={reset}
-        className="flex items-center gap-2 border rounded px-2 py-1"
-      >
+      </Button>
+      <Button onClick={reset} className="flex items-center gap-2" variant="outline">
         <FiRefreshCcw /> Reset
-      </button>
+      </Button>
     </div>
   );
 }
