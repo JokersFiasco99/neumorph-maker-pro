@@ -1,4 +1,7 @@
-import Color from 'colorjs.io';
+import ColorLib from 'colorjs.io';
+
+// Cast to any to avoid type issues with colorjs.io definitions
+const Color: any = ColorLib as any;
 
 export function hexToHsl(hex: string): { h: number; s: number; l: number } {
   const c = new Color(hex);

@@ -11,7 +11,7 @@ export default function App() {
   const [isPressed, setIsPressed] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 p-4">
+    <div className="container mx-auto flex flex-col md:flex-row gap-4 p-4">
       <ControlPanel
         color={baseColor}
         onColorChange={setBaseColor}
@@ -35,4 +35,3 @@ export default function App() {
     </div>
   );
 }
-
