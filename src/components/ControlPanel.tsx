@@ -52,41 +52,49 @@ export default function ControlPanel({
       <label className="flex items-center gap-2">
         <span>Color</span>
         <input
+          aria-label="Color"
           type="color"
           value={color}
           onChange={(e) => onColorChange(e.target.value)}
           className="border rounded"
         />
+        <span className="ml-2 text-xs font-mono">{color}</span>
       </label>
       <label className="flex items-center gap-2">
         <span>Depth</span>
         <input
+          aria-label="Depth"
           type="range"
           min="1"
           max="20"
           value={depth}
           onChange={(e) => onDepthChange(Number(e.target.value))}
         />
+        <span className="ml-2 text-xs font-mono">{depth}px</span>
       </label>
       <label className="flex items-center gap-2">
         <span>Size</span>
         <input
+          aria-label="Size"
           type="range"
           min="100"
           max="300"
           value={size}
           onChange={(e) => onSizeChange(Number(e.target.value))}
         />
+        <span className="ml-2 text-xs font-mono">{size}px</span>
       </label>
       <label className="flex items-center gap-2">
         <span>Radius</span>
         <input
+          aria-label="Radius"
           type="range"
           min="0"
           max="50"
           value={radius}
           onChange={(e) => onRadiusChange(Number(e.target.value))}
         />
+        <span className="ml-2 text-xs font-mono">{radius}px</span>
       </label>
       <button
         onClick={onToggle}
