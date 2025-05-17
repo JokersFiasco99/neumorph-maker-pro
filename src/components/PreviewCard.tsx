@@ -1,5 +1,6 @@
 import { motion } from '@motionone/react';
 import { useNeumorph } from '../hooks/useNeumorph';
+import { CSSProperties } from 'react';
 
 interface Props {
   color: string;
@@ -20,7 +21,7 @@ export default function PreviewCard({
 }: Props) {
   const { raisedShadow, insetShadow, h, s, l } = useNeumorph(color, depth);
 
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     width: size,
     height: size,
     borderRadius: radius,
@@ -31,7 +32,7 @@ export default function PreviewCard({
     '--neu-radius': `${radius}px`,
     '--neu-raised': raisedShadow,
     '--neu-inset': insetShadow
-  } as React.CSSProperties;
+  } as CSSProperties;
 
   const handlePointerDown = () => {
     timeout = setTimeout(() => {
@@ -41,7 +42,7 @@ export default function PreviewCard({
     }, 600);
   };
 
-  let timeout: NodeJS.Timeout;
+  let timeout: ReturnType<typeof setTimeout>;
   const handlePointerUp = () => {
     clearTimeout(timeout);
   };

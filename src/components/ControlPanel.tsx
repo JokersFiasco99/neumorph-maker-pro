@@ -2,13 +2,13 @@ import { FiCopy, FiToggleLeft, FiToggleRight } from 'react-icons/fi';
 
 interface Props {
   color: string;
-  onColorChange: (v: string) => void;
+  onColorChange: (newColor: string) => void;
   depth: number;
-  onDepthChange: (v: number) => void;
+  onDepthChange: (newDepth: number) => void;
   size: number;
-  onSizeChange: (v: number) => void;
+  onSizeChange: (newSize: number) => void;
   radius: number;
-  onRadiusChange: (v: number) => void;
+  onRadiusChange: (newRadius: number) => void;
   isPressed: boolean;
   onToggle: () => void;
 }

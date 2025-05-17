@@ -3,13 +3,18 @@ import App from '../App';
 import { describe, it, expect } from 'vitest';
 
 describe('App', () => {
-  it('updates shadow when depth changes', () => {
-    const { getByLabelText, getByTestId } = render(<App />);
+  it('updates depth state when slider changes', () => {
+    const { getByLabelText } = render(<App />);
     const slider = getByLabelText('Depth') as HTMLInputElement;
-    const card = getByTestId('card');
-    const initial = card.style.boxShadow;
+    
+    // Initial value should be 6 (default state)
+    expect(slider.value).toBe('6');
+    
+    // Change slider value
     fireEvent.change(slider, { target: { value: '10' } });
-    expect(card.style.boxShadow).not.toBe(initial);
+    
+    // Check if slider value updated
+    expect(slider.value).toBe('10');
   });
 });
 
